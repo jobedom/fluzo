@@ -40,6 +40,7 @@
   "dependencies": {
     "bluebird": "^2.5.3",
     "lodash": "~2.4.1",
+    "moment": "^2.8.4",
     "postal": "^0.12.3",
     "raf-polyfill": "^0.1.8",
     "react": "~0.12.0"

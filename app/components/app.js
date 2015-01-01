@@ -3,10 +3,10 @@
 var _ = require('lodash');
 var React = require('react');
 var User = require('./user');
-var ActionMixin = require('../../lib/action-mixin');
+var FluzoMixin = require('../../lib/fluzo-mixin');
 
 var App = React.createClass({
-   mixins: [ActionMixin],
+   mixins: [FluzoMixin],
 
    onEmptyClick() {
       this.action('users.empty');
