@@ -2,7 +2,6 @@
   "name": "fluzo",
   "version": "0.0.1",
   "description": "Lightweight Flux architecture using Postal and ReactJS.",
-  "private": true,
   "main": "index.html",
   "scripts": {
     "start": "node server",
@@ -12,7 +11,19 @@
   "config": {
     "port": 3030
   },
+  "repository": "git://github.com/jobedom/fluzo.git",
+  "keywords": [
+    "javascript",
+    "postaljs",
+    "reactjs",
+    "flux"
+  ],
   "author": "Joaquín Bernal <jobedom@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jobedom/fluzo/issues"
+  },
+  "homepage": "https://github.com/jobedom/fluzo",
   "devDependencies": {
     "autoprefixer-loader": "~1.0.0",
     "css-loader": "~0.9.0",
