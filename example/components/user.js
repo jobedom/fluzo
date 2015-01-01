@@ -1,10 +1,10 @@
 'use strict';
 
 var React = require('react');
-var FluzoMixin = require('../../lib/fluzo-mixin');
+var Fluzo = require('../../lib');
 
-var User = React.createClass({
-   mixins: [FluzoMixin],
+var User = Fluzo.createClass({
+   displayName: 'User',
 
    onDeleteUser() {
       this.action('user.delete', this.props.id);

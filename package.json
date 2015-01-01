@@ -2,15 +2,7 @@
   "name": "fluzo",
   "version": "0.0.1",
   "description": "Lightweight Flux architecture using Postal and ReactJS.",
-  "main": "index.html",
-  "scripts": {
-    "start": "node server",
-    "build": "webpack --config webpack.config.dist.js --progress --colors",
-    "serve": "http-server -p 3030"
-  },
-  "config": {
-    "port": 3030
-  },
+  "main": "lib/index.js",
   "repository": "git://github.com/jobedom/fluzo.git",
   "keywords": [
     "javascript",
@@ -25,24 +17,23 @@
   },
   "homepage": "https://github.com/jobedom/fluzo",
   "devDependencies": {
-    "autoprefixer-loader": "~1.0.0",
-    "css-loader": "~0.9.0",
-    "file-loader": "~0.8.1",
-    "http-server": "~0.7.3",
-    "json-loader": "~0.5.1",
-    "jsx-loader": "~0.12.1",
-    "style-loader": "~0.8.2",
-    "stylus-loader": "~0.4.0",
-    "url-loader": "~0.5.5",
-    "webpack": "~1.4.13",
-    "webpack-dev-server": "1.6.5"
+    "autoprefixer-loader": "^1.0.0",
+    "css-loader": "^0.9.0",
+    "file-loader": "^0.8.1",
+    "http-server": "^0.7.3",
+    "json-loader": "^0.5.1",
+    "jsx-loader": "^0.12.1",
+    "style-loader": "^0.8.2",
+    "stylus-loader": "^0.4.0",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.4.13",
+    "webpack-dev-server": "^1.6.5"
   },
   "dependencies": {
     "bluebird": "^2.5.3",
-    "lodash": "~2.4.1",
-    "moment": "^2.8.4",
+    "lodash": "^2.4.1",
     "postal": "^0.12.3",
     "raf-polyfill": "^0.1.8",
-    "react": "~0.12.0"
+    "react": "^0.12.0"
   }
 }

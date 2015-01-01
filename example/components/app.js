@@ -2,11 +2,11 @@
 
 var _ = require('lodash');
 var React = require('react');
+var Fluzo = require('../../lib');
 var User = require('./user');
-var FluzoMixin = require('../../lib/fluzo-mixin');
 
-var App = React.createClass({
-   mixins: [FluzoMixin],
+var App = Fluzo.createClass({
+   displayName: 'App',
 
    onEmptyClick() {
       this.action('users.empty');
@@ -28,7 +28,7 @@ var App = React.createClass({
       _.times(100, this.onAddClick);
    },
 
-  render() {
+   render() {
       // console.debug('render:App');
       var users_list = this.props.users.map((user) =>
          <User key={user.id} {...user} />

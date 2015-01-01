@@ -1,16 +1,11 @@
 'use strict';
 
 var webpack = require('webpack');
-var pkg = require('./package.json');
-
-var port = pkg.config.port || 3000;
-var url = 'http://localhost:' + port;
 
 module.exports = {
-   devtool: '#eval-source-map',
+   devtool: '#source-map',
    entry: [
-      'webpack-dev-server/client?' + url,
-      './lib/index'
+      './index'
    ],
    output: {
       path: __dirname + '/dist',
@@ -18,13 +13,13 @@ module.exports = {
       publicPath: '/dist/'
    },
    plugins: [
-      new webpack.NoErrorsPlugin()
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin()
    ],
    resolve: {
       modulesDirectories: [
          'node_modules',
-         'web_modules',
-         'app'
+         'web_modules'
       ],
       extensions: [
          '',

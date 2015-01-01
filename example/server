@@ -1,11 +1,21 @@
+#!/usr/bin/env node
+
 'use strict';
 
 var webpack = require('webpack');
+var WebpackDevServer = require('webpack-dev-server');
 
-module.exports = {
-   devtool: '#source-map',
+var host = '127.0.0.1';
+var port = 3030;
+var url = host + ':' + port.toString();
+
+var config = {
+   host: host,
+   port: port,
+   devtool: '#eval-source-map',
    entry: [
-      './lib/index'
+      'webpack-dev-server/client?' + url,
+      './index'
    ],
    output: {
       path: __dirname + '/dist',
@@ -13,14 +23,12 @@ module.exports = {
       publicPath: '/dist/'
    },
    plugins: [
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin()
+      new webpack.NoErrorsPlugin()
    ],
    resolve: {
       modulesDirectories: [
          'node_modules',
-         'web_modules',
-         'app'
+         'web_modules'
       ],
       extensions: [
          '',
@@ -41,3 +49,20 @@ module.exports = {
       ]
    }
 };
+
+var server = new WebpackDevServer(webpack(config), {
+   publicPath: config.output.publicPath,
+   stats: { colors: true },
+});
+
+server.listen(
+   config.port, config.host,
+   function (err, result) {
+      if (err) {
+         console.log(err);
+      }
+      else {
+         console.log('Listening at: http://' + url);
+      }
+   }
+);
