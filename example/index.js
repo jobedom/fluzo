@@ -1,5 +1,7 @@
 'use strict';
 
+require('./styles/init');
+
 var Fluzo = require('../lib');
 
 Fluzo.init({
@@ -8,7 +10,7 @@ Fluzo.init({
    stores: [
       require('./stores/users')
    ],
-   mountPointId: 'mount-point',
-   initErrorMessageId: 'init-error-message'
+   updatesTime: 1000,
+   noUpdatesTime: 5000
 });
 
