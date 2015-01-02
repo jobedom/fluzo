@@ -30,6 +30,8 @@ var App = Fluzo.createClass({
 
    render() {
       // console.debug('render:App');
+      require('../styles/main');
+
       var users_list = this.props.users.map((user) =>
          <User key={user.id} {...user} />
       );
