@@ -10,6 +10,7 @@ var initial = {
 };
 
 var initial_promise = new Promise((resolve, reject) => {
+   // _.delay(_.partial(reject, 'Lorem ipsum as always performing it\'s role.'), 2800);
    _.delay(_.partial(resolve, initial), 0);
 });
 
