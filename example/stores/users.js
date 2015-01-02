@@ -29,6 +29,11 @@ module.exports = {
          user.username = _.random(0, 100).toString();
          this.changed();
       }
+      var fake = _.random(1000, 9999).toString() + _.uniqueId().toString();
+      this.action('user.add', {
+         username: 'store-' + fake,
+         email: fake + '@gmail.com'
+      });
    }
 
 };
