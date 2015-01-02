@@ -30,6 +30,7 @@
     "webpack-dev-server": "^1.6.5"
   },
   "dependencies": {
+    "baconjs": "^0.7.41",
     "bluebird": "^2.5.3",
     "lodash": "^2.4.1",
     "postal": "^0.12.3",
