@@ -30,7 +30,7 @@
     "nodemon": "^1.2.1"
   },
   "dependencies": {
-    "fluzo-store": "^0.1.2",
+    "fluzo-store": "^0.2.1",
     "lodash": "^2.4.1",
     "postal": "^0.12.3"
   }
