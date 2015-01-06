@@ -1,6 +1,6 @@
 # fluzo
 
-Lightweight Flux architecture using Postal and ReactJS.
+Lightweight frontend architecture using Postal and ReactJS.
 
 * [https://github.com/jobedom/fluzo](https://github.com/jobedom/fluzo)
 * [https://www.npmjs.com/package/fluzo](https://www.npmjs.com/package/fluzo)

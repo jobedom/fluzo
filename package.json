@@ -1,7 +1,7 @@
 {
   "name": "fluzo",
   "version": "0.2.0",
-  "description": "Lightweight Flux architecture using Postal and ReactJS.",
+  "description": "Lightweight frontend architecture using Postal and ReactJS.",
   "main": "lib/index.js",
   "scripts": {
     "start": "./scripts/test",
