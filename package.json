@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "description": "Lightweight Flux architecture using Postal and ReactJS.",
   "main": "lib/index.js",
+  "scripts": {
+    "start": "./scripts/test",
+    "test": "./scripts/coveralls",
+    "watch": "./scripts/watch",
+    "lint": "./scripts/lint"
+  },
   "repository": "git://github.com/jobedom/fluzo.git",
   "keywords": [
     "javascript",
@@ -17,24 +23,13 @@
   },
   "homepage": "https://github.com/jobedom/fluzo",
   "devDependencies": {
-    "autoprefixer-loader": "^1.0.0",
-    "css-loader": "^0.9.0",
-    "file-loader": "^0.8.1",
-    "http-server": "^0.7.3",
-    "json-loader": "^0.5.1",
-    "jsx-loader": "^0.12.1",
-    "style-loader": "^0.8.2",
-    "stylus-loader": "^0.4.0",
-    "url-loader": "^0.5.5",
-    "webpack": "^1.4.13",
-    "webpack-dev-server": "^1.6.5"
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
+    "jshint": "^2.5.11",
+    "mocha": "^2.1.0",
+    "nodemon": "^1.2.1"
   },
   "dependencies": {
-    "baconjs": "^0.7.41",
-    "bluebird": "^2.5.3",
-    "lodash": "^2.4.1",
-    "postal": "^0.12.3",
-    "raf-polyfill": "^0.1.8",
-    "react": "^0.12.0"
+    "lodash": "^2.4.1"
   }
 }

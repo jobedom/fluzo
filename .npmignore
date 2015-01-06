@@ -1,16 +1,15 @@
 node_modules
 components
 coverage
+scripts
 dist
 test
-example
 
 npm-debug.log
 .editorconfig
 .coveralls.yml
 .travis.yml
 .jshintrc
-Makefile
 *.sublime-project
 *.sublime-workspace
 *.log

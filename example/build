@@ -1,4 +1,0 @@
-#!/bin/sh
-
-../node_modules/.bin/webpack --config webpack.config.js --progress --colors && \
-../node_modules/.bin/http-server -p 3030

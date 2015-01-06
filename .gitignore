@@ -1,6 +1,13 @@
 node_modules
-example/dist
+components
+coverage
+dist
 
-*.log
-*.editorconfig
+npm-debug.log
+.editorconfig
+.coveralls.yml
 *.sublime-*
+*.log
+*.tgz
+*.patch
+*.diff
