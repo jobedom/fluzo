@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-// var Fluzo = require('../lib');
+var Fluzo = require('../lib');
 
 describe('fluzo', function () {
 
@@ -10,7 +10,7 @@ describe('fluzo', function () {
    });
 
    it('...', function () {
-      assert(true);
+      assert(Fluzo.double(103) === 206);
    });
 
 });
