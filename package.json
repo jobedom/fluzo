@@ -32,6 +32,6 @@
   "dependencies": {
     "fluzo-store": "^0.2.1",
     "postal": "^0.12.3",
-    "raf-polyfill": "^0.1.9"
+    "raf": "^2.0.4"
   }
 }
