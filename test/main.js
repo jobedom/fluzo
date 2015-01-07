@@ -97,4 +97,9 @@ describe('fluzo', function () {
       unsubscribe2();
    });
 
+   it('starts and stops', function () {
+      Fluzo.startUpdating();
+      Fluzo.stopUpdating();
+   });
+
 });
