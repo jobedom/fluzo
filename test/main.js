@@ -10,6 +10,7 @@ describe('fluzo', function () {
    beforeEach(function (done) {
       Fluzo.clearRenderRequests();
       Fluzo.Store.removeAll();
+      Fluzo.stopUpdating();
       store = new Fluzo.Store('test');
       return done();
    });
@@ -97,9 +98,48 @@ describe('fluzo', function () {
       unsubscribe2();
    });
 
-   it('starts and stops', function () {
+   it('allows multiple updating starts', function () {
       Fluzo.startUpdating();
+      Fluzo.startUpdating();
+   });
+
+   it('allows multiple updating stops', function () {
       Fluzo.stopUpdating();
+      Fluzo.stopUpdating();
+   });
+
+   it('starts and stops', function (done) {
+      Fluzo.startUpdating();
+      setTimeout(function () {
+         Fluzo.stopUpdating();
+         setTimeout(done, 10);
+      }, 0);
+   });
+
+   it('gives access to store states', function () {
+      var state = Fluzo.storeState('test');
+      assert(state === store.state);
+   });
+
+   it('gives undefined when accessing to undefined store state', function () {
+      var state = Fluzo.storeState('unknown');
+      assert(state === undefined);
+   });
+
+   it('includes a React mixing to speed up component rendering', function () {
+      var mixin = Fluzo.Mixin;
+      var result;
+      result = mixin.shouldComponentUpdate({});
+      assert(result);
+      mixin.props = {
+         foo: 'bar',
+         number: 100
+      };
+      result = mixin.shouldComponentUpdate({
+         foo: 'bar',
+         number: 200
+      });
+      assert(result);
    });
 
 });
