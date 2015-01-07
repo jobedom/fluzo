@@ -6,6 +6,7 @@
   "scripts": {
     "start": "./scripts/test",
     "test": "./scripts/coveralls",
+    "cover": "./scripts/cover",
     "watch": "./scripts/watch",
     "lint": "./scripts/lint"
   },
