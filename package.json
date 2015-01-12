@@ -31,7 +31,7 @@
     "nodemon": "^1.2.1"
   },
   "dependencies": {
-    "fluzo-store": "^0.3.0",
+    "fluzo-store": "^0.3.1",
     "lodash": "^2.4.1",
     "postal": "^0.12.3",
     "raf": "^2.0.4",
