@@ -14,8 +14,7 @@
   "keywords": [
     "javascript",
     "postaljs",
-    "reactjs",
-    "flux"
+    "reactjs"
   ],
   "author": "Joaquín Bernal <jobedom@gmail.com>",
   "license": "MIT",
