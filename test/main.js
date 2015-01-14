@@ -15,6 +15,14 @@ describe('fluzo', function () {
       return done();
    });
 
+   afterEach(function (done) {
+      Fluzo.clearRenderSubscriptions();
+      Fluzo.clearRenderRequests();
+      Fluzo.Store.removeAll();
+      Fluzo.stopUpdating();
+      return done();
+   });
+
    it('access stores transparently', function () {
       assert(store.id === 'test');
    });

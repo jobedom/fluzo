@@ -68,11 +68,12 @@ describe('fluzo-store', function () {
          }
       );
       foo.changed();
-      assert(triggered);
       suscription.unsubscribe();
+      assert(triggered);
    });
 
    it('receives actions through postal', function () {
+      var triggered = false;
       var store = new Store('test');
       var data_item = {
          foo: 'hello',
@@ -83,12 +84,12 @@ describe('fluzo-store', function () {
          assert(data === data_item);
          assert(envelope.topic === 'action.foo.bar');
       };
-      var triggered = false;
       Fluzo.channel.publish('action.foo.bar', data_item);
       assert(triggered);
    });
 
    it('triggers actions through postal', function () {
+      var triggered = false;
       var store1 = new Store('test1');
       var store2 = new Store('test2');
       var data_item = {
@@ -99,36 +100,35 @@ describe('fluzo-store', function () {
          triggered = true;
          assert(data === data_item);
          assert(envelope.topic === 'action.foo.bar');
-      };
-      var triggered = false;
+         };
       store2.action('foo.bar', data_item);
       assert(triggered);
    });
 
    it('lets unhandled actions pass', function () {
+      var triggered = false;
       var store = new Store('test');
       store.onFooBar = function () {
          triggered = true;
       };
-      var triggered = false;
       Fluzo.channel.publish('action.unknown');
       assert(!triggered);
    });
 
    it('handles unknown actions', function () {
+      var triggered = false;
       var store = new Store('test');
       store.onAction = function (data, envelope) {
          triggered = true;
          assert(envelope.channel === 'fluzo');
       };
-      var triggered = false;
       Fluzo.channel.publish('action.unknown');
       assert(triggered);
    });
 
    it('passes correct "this" to action handlers', function () {
-      var store = new Store('test');
       var triggered = false;
+      var store = new Store('test');
       store.onFooBar = function () {
          triggered = true;
          assert(store === this);
@@ -139,12 +139,13 @@ describe('fluzo-store', function () {
 
    it('allows extending class in constructor', function () {
       var triggered = false;
-      new Store('test', {
+      var store = new Store('test', {
          onFooBar: function () {
             triggered = true;
          }
       });
       Fluzo.channel.publish('action.foo.bar');
+      store = undefined;
       assert(triggered);
    });
 
@@ -172,8 +173,8 @@ describe('fluzo-store', function () {
          number: 100
       };
       store.setState(state);
-      assert(triggered);
       suscription.unsubscribe();
+      assert(triggered);
    });
 
    it('can prevent change signal when setting state', function () {
@@ -190,8 +191,8 @@ describe('fluzo-store', function () {
          number: 100
       };
       store.setState(state, false);
-      assert(!triggered);
       suscription.unsubscribe();
+      assert(!triggered);
    });
 
    it('allows custom action when setting state', function () {
@@ -250,8 +251,8 @@ describe('fluzo-store', function () {
          number: 100
       };
       store.setInitialState(state);
-      assert(!triggered);
       suscription.unsubscribe();
+      assert(!triggered);
    });
 
    it('can signal change in action handler', function () {
@@ -268,8 +269,8 @@ describe('fluzo-store', function () {
          }
       });
       Fluzo.channel.publish('action.foo.bar');
-      assert(triggered);
       suscription.unsubscribe();
+      assert(triggered);
    });
 
    it('can receive a promise for initial state', function () {
@@ -302,15 +303,12 @@ describe('fluzo-store', function () {
       });
       store.setState(promise);
       promise.then(function () {
-         assert(triggered);
          suscription.unsubscribe();
+         assert(triggered);
       });
    });
 
    it('can return a promise from an action', function () {
-      var success_triggered = false;
-      var error_triggered = false;
-
       var mockedAjax = function (fail) {
          return new Bluebird(function (resolve, reject) {
             if (fail) {
@@ -328,13 +326,11 @@ describe('fluzo-store', function () {
             return mockedAjax(true);
          },
 
-         onFooBarSuccess: function (data) {
-            success_triggered = true;
-            assert(data === 1000);
+         onFooBarSuccess: function () {
+            assert(false);
          },
 
          onFooBarError: function (error) {
-            error_triggered = true;
             assert(error === 'Ajax error');
          },
 
@@ -344,23 +340,16 @@ describe('fluzo-store', function () {
          },
 
          onFooFarSuccess: function (data) {
-            success_triggered = true;
             assert(data === 1000);
          },
 
-         onFooFarError: function (error) {
-            error_triggered = true;
-            assert(error === 'Ajax error');
+         onFooFarError: function () {
+            assert(false);
          }
       });
 
       Fluzo.channel.publish('action.foo.bar');
       Fluzo.channel.publish('action.foo.far');
-
-      setTimeout(function () {
-         assert(error_triggered);
-         assert(success_triggered);
-      }, 0);
    });
 
 });
