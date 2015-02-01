@@ -1,6 +1,6 @@
 {
   "name": "fluzo",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Lightweight frontend architecture using Postal and ReactJS.",
   "main": "lib/index.js",
   "scripts": {
