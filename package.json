@@ -23,15 +23,15 @@
   },
   "homepage": "https://github.com/jobedom/fluzo",
   "devDependencies": {
-    "bluebird": "^2.9.3",
+    "bluebird": "^2.9.4",
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.5",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",
-    "nodemon": "^1.3.2"
+    "nodemon": "^1.3.6"
   },
   "dependencies": {
-    "lodash": "^3.0.0",
+    "lodash": "^3.0.1",
     "postal": "^0.12.4",
     "raf": "^2.0.4",
     "react": "^0.12.2"
